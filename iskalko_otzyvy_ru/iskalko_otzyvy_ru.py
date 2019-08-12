@@ -42,6 +42,7 @@ class IskalkoOtzyvyRu:
         return self
 
     def _collect_reviews(self):
+        """TODO: get url of comment"""
         self.logger.send_info('collecting reviews is start')
         page_number = 1
         while True:
@@ -97,16 +98,29 @@ class Author:
     def get_name(self):
         return self.name
 
+    def get_dict(self):
+        return {
+            'name': self.name,
+        }
+
 
 class Review:
-    id = ''
-    text = ''
-    date = ''
-    url = ''
-    author = None
 
     def __init__(self):
+        self.id = ''
+        self.text = ''
+        self.date = ''
+        self.url = ''
         self.author = Author()
+
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'text': self.text,
+            'date': self.date,
+            'url': self.url,
+            'author': self.author.get_dict(),
+        }
 
     def __repr__(self):
         return '{}: <{}> - {}'.format(self.id, self.date, self.author.get_name())
@@ -115,4 +129,5 @@ class Review:
 if __name__ == '__main__':
     prov = IskalkoOtzyvyRu('altapatri.ru отзывы')
     prov.start()
-    print(prov.id, prov.reviews)
+    for i in prov.reviews:
+        print(i.get_dict())
