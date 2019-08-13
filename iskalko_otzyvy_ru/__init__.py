@@ -5,7 +5,7 @@ from .iskalko_otzyvy_ru import IskalkoOtzyvyRu
 
 __author__ = """Melis Nurlan"""
 __email__ = 'melis.zhoroev+scrubber@gmail.com'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __title__ = __name__ = 'Iskalko-Otzyvy.Ru'
 __description__ = 'Каталог фирм, отзывы о компаниях'
 __slug_img_link__ = 'https://i.ibb.co/VHmYq5w/image.png'

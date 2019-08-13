@@ -37,8 +37,10 @@ class IskalkoOtzyvyRu:
         self.session.headers = headers
 
     def start(self):
+        self.logger.send_info('scrubber is started')
         self.id = self._get_post_id()
         self.reviews = list(self._collect_reviews())
+        self.logger.send_info('scrubber is finished')
         return self
 
     def _collect_reviews(self):
